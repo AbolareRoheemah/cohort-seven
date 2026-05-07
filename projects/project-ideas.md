@@ -1,6 +1,6 @@
 # Proposed projects
 
-Project ideas proposed by client teams and mentors. These are projects that fit the EPF scope and would be the most valuable to the team. 
+Project ideas proposed by client teams and mentors. These are projects that fit the EPF scope and would be the most valuable to the team.
 
 If you are interested in the project, take your time to learn about it, the team it's coming from and related area of the protocol. Reach out to client organizers if you have any questions or need connection to a mentor.
 
@@ -15,9 +15,9 @@ In project ideas from previous cohorts, you might find some up-to-date ideas whi
 - [Project ideas in the second cohort](https://github.com/ethereum-cdap/cohort-zero/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22)
 - [Project ideas in the first cohort](https://github.com/ethereum-cdap/cohort-one/issues?q=is%3Aissue+Project+idea)
 
-## Ongoing wishlists 
+## Ongoing wishlists
 
-These are collections of projects proposed by some teams and might not be fully updated. 
+These are collections of projects proposed by some teams and might not be fully updated.
 
 ### Protocol Security tooling wishlist
 
@@ -31,7 +31,7 @@ https://security.ethereum.org/wishlist
 
 By Pari
 
-Ongoing wishlist of ideas for tools that help with development and testing of the protocol. 
+Ongoing wishlist of ideas for tools that help with development and testing of the protocol.
 
 https://github.com/ethpandaops/tooling-wishlist
 
@@ -62,3 +62,24 @@ Examples of such alternatives include different storage backends, sync strategie
 
 This project is a good fit for fellows interested in Lean Ethereum, client diversity, testing infrastructure, and AI-assisted client implementation.
 
+### Ream: Black Box Interop Testing Post Quantum Lean Ethereum
+
+By Kolby ML and Derek Sorken
+
+The Ream team maintains the shared testing infrastructure for the post quantum movement for Ethereum (lean consensus) at https://hive.leanroadmap.org/, a black box testing framework that tests post quantum clients against a common suite of scenarios.
+
+The project would be fully in Rust 🦀 and can be found on https://github.com/ethereum/hive.
+
+Every lean consensus client shipping runs through this testing framework, which means the work you do on this project directly impacts the lean ecosystem as it allows the post quantum effort to confidently scale devnets to larger validator sets and how quick teams can ship devnets against an evolving Post Quantum Ethereum spec (https://github.com/leanEthereum/leanSpec).
+
+This project would extend the testing infrastructure: adding new scenarios (spec tests, checkpoint tests, signature aggregation interop, state transition cross-checks, key lifecycle edge cases), onboarding new client implementations if required, and improving the framework itself which involves adding fixtures, runtime errors, handling test failures, and maintaining dashboards that show the state of the clients' performance in the tests.
+
+### Ream: Execution Layer Integration for the Lean Chain
+
+By Kolby ML and Shariq Naiyer
+
+The Post Quantum spec is currently consensus-only. Ream's blocks carry only attestations, and there is no way for a wallet to submit a transaction against a lean network.
+
+What made Ethereum different from what came before was that, for the first time, people could write programs backed by the same fundamental principles as Bitcoin. We think it would be cool to show that the same is true under PoC post-quantum testnet where users can send transactions and deploy smart contracts on a chain finalized in seconds, backend by post quantum security in Rust 🦀.
+
+This project involves embedding reth (https://github.com/paradigmxyz/reth) directly into the Ream (https://github.com/ReamLabs/ream) binary as a library and driving it from inside the lean stack via reth's Execution Extensions (ExEx) framework. One process, no HTTP bridge between an Execution and Consensus. The success bar is a working "wallet → tx → block → confirmation" demo on a local lean devnet running as a single `ream lean_node` binary with reth embedded.
