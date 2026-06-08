@@ -289,3 +289,20 @@ An alternative [REST-SSZ](https://github.com/ethereum/execution-apis/pull/793)-b
 By Nimbus
 
 FOCIL has been planned for the upcoming Hegotá fork. This project aims to contribute to the Nimbus CL's FOCIL design, implementation, and testing, including participating in upcoming FOCIL devnets and testnets. This is largely specified, in particular, as part of [Heze](https://github.com/ethereum/consensus-specs/tree/master/specs/heze). Aspects include the beacon chain implementations, managing the inclusion lists, gossip validation on inclusion lists, producing and disseminating blocks referencing inclusion lists, and handling network health-based fallback scenarios.
+
+### Moonglass: Rust + Consensus
+
+By brech1
+
+[Moonglass](https://github.com/brech1/moonglass) is an experimental Rust implementation of the Ethereum consensus targeting Gloas "only" `consensus-specs`. It tracks a single fork and runs against the `consensus-specs` reference tests. It could be an option for people interested in Rust and consensus without the multi-fork overhead of a full client.
+
+Possible tracks:
+
+- Reference-test adapters for `kzg`, `merkle_proof`, `shuffling`, `genesis`
+- Execution-engine validity: payload verifier feeding `Store::payloads`
+- KZG blob wrappers
+- BLS `aggregate_verify`
+- Wall-clock fork-choice driver
+- In-house SSZ
+- Networking specs impl
+- Rust → Lean4 generation and formal verification
