@@ -29,6 +29,7 @@ Phase one is the very beginning of the cohort. The first few weeks are dedicated
 | [Sameer](https://github.com/SamAg19)            | [Update 0](https://hackmd.io/@samag19/BkqGmuHbzl)                                                   |        |        |
 | [Vansh](https://github.com/vanshsahay)          | [Update 0](https://hackmd.io/@vanshsahay/ByEF5juZMl)                                                 |        |        |
 | [Zidan](https://github.com/mzf11125)            | [Update 0](https://hackmd.io/@MpYoLwpETrKvUBs2PpmPxA/BJC-dHOZze)                                    |        |        |
+| [Ray](https://github.com/rayjun)                | [Update 0](https://hackmd.io/@zBK5wwtLTrqYmlLNZd8CPA/HJKQsAi-Me)                                    |        |        |
 
 
 
