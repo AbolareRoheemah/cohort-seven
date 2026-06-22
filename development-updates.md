@@ -26,9 +26,9 @@ Phase one is the very beginning of the cohort. The first few weeks are dedicated
 | [Kimi](https://github.com/KimiWu123)            | [Update 0](https://hackmd.io/@kimiwu/Bk3E5QRWzl)                                                    |        |        |
 | [Mario](https://github.com/taxmeifyoucan/)      | [ Update 0](https://notes.ethereum.org/@MarioHavel/week0)                                           |        |        |
 | [Marko](https://github.com/markolazic01)        | [Update 0](https://hackmd.io/@lqzic/week-0-update)                                                  |        |        |
-| [Parth](https://github.com/ParthSinghPS)        | [Update 0](https://hackmd.io/@ParthSinghPS/HJMWUn6xzg)                                              |        |        |
+| [Parth](https://github.com/ParthSinghPS)        | [Update 0](https://hackmd.io/@ParthSinghPS/HJMWUn6xzg)                                              | [Update 1](https://hackmd.io/@ParthSinghPS/HyU9GnrzGe) |        |
 | [Rahul](https://github.com/rahulbarmann/)       | [Update 0](https://hackmd.io/@8t0zzURJSC6IX5BOuOiGqQ/Sk0vwhHZfg)                                    |        |        |
-| [Parth](https://github.com/ParthSinghPS)        | [Update 0](https://hackmd.io/@ParthSinghPS/HJMWUn6xzg)                                              |        |        |
+
 | [Sagar](https://www.github.com/SoarinSkySagar)  | [Update 0](https://hackmd.io/@5d9IS104QYmhm-pr1ypNJg/Bk3xoWQbGg)                                    |        |        |                              |        |        |
 
 
