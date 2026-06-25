@@ -46,6 +46,15 @@ def normalize_cell(text: str) -> str:
     return re.sub(r"\s+", " ", text.strip())
 
 
+def sort_key(name_cell: str):
+    # Sort by the display name inside the first [...] link, case-insensitively,
+    # so ordering matches how the table is read alphabetically. Falls back to
+    # the raw cell when there is no link.
+    m = re.search(r"\[([^\]]*)\]", name_cell)
+    label = m.group(1) if m else name_cell
+    return (label.strip().lower(), name_cell.lower())
+
+
 def parse_alignment(sep_cell: str) -> str:
     c = sep_cell.strip()
     left = c.startswith(":")
@@ -150,8 +159,19 @@ def render_blocks(blocks: list[object]) -> str:
     return "\n".join(parts)
 
 
+def sort_table_rows(t: Table) -> Table:
+    # Sort rows alphabetically by name, but only for tables that actually have
+    # named rows. Placeholder tables (empty Phase 2/3) are left untouched so we
+    # don't disturb their blank rows.
+    if not any(t.key_of(r) for r in t.rows):
+        return t
+    rows = sorted(t.rows, key=lambda r: sort_key(r[0]) if r else ("", ""))
+    return Table(t.header, t.aligns, rows)
+
+
 def do_format(text: str) -> str:
     blocks = parse_blocks(text)
+    blocks = [sort_table_rows(b) if isinstance(b, Table) else b for b in blocks]
     result = render_blocks(blocks)
     if text.endswith("\n") and not result.endswith("\n"):
         result += "\n"
@@ -210,18 +230,14 @@ def merge_tables(base: Table, ours: Table, theirs: Table) -> tuple[Table, bool]:
     ours_map = {ours.key_of(r): reshape(r) for r in ours.rows if ours.key_of(r)}
     theirs_map = {theirs.key_of(r): reshape(r) for r in theirs.rows if theirs.key_of(r)}
 
-    order: list[str] = []
-    seen = set()
-
-    def add_order(keys):
-        for k in keys:
-            if k and k not in seen:
-                seen.add(k)
-                order.append(k)
-
-    add_order(ours.key_of(r) for r in ours.rows)
-    add_order(theirs.key_of(r) for r in theirs.rows)
-    add_order(base.key_of(r) for r in base.rows)
+    # Canonical row order is alphabetical by display name. The table is meant to
+    # be alphabetical, and forcing a deterministic order means every branch and
+    # main converge to the SAME ordering -- so the only real diff is cell content
+    # and git can merge without conflicts regardless of when a branch forked.
+    order = sorted(
+        set(base_map) | set(ours_map) | set(theirs_map),
+        key=sort_key,
+    )
 
     merged_rows = []
     for k in order:

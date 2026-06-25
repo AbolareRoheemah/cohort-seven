@@ -97,7 +97,12 @@ def main(pr_number):
             "Resolve manually (look for '<!-- CONFLICT' markers)."
         )
 
-    if merged == ours_content:
+    # Is the base tip already an ancestor of the PR head, and the file already
+    # the merged content? Then the PR is up to date -> nothing to push.
+    base_is_ancestor = subprocess.run(
+        ["git", "merge-base", "--is-ancestor", main_ref, head_ref]
+    ).returncode == 0
+    if base_is_ancestor and merged == ours_content:
         print(f"PR #{pr_number}: already in sync with {base_branch}; mergeable.")
         return 0
 
@@ -109,14 +114,21 @@ def main(pr_number):
             "`python3 scripts/dev_updates.py format development-updates.md` locally."
         )
 
-    run(["git", "checkout", "-B", "_autofix", head_ref])
+    # Build a real merge commit: tree = PR head's tree but with the merged file,
+    # parents = PR head + base tip. This makes the base branch an ancestor of the
+    # PR branch, so merging the PR back into base is conflict-free afterwards.
+    run(["git", "checkout", "-q", head_ref], check=True)
     open(FILE, "w").write(merged)
     run(["git", "add", FILE])
-    if subprocess.run(["git", "diff", "--cached", "--quiet"]).returncode == 0:
-        print(f"PR #{pr_number}: no net change; mergeable.")
-        return 0
-    run(["git", "commit", "-m", "Sync development-updates.md with base branch"])
-    run(["git", "push", "prhead", f"_autofix:{head_branch}"])
+    tree = run(["git", "write-tree"], capture=True)
+    parent_pr = run(["git", "rev-parse", "HEAD"], capture=True)
+    parent_base = run(["git", "rev-parse", main_ref], capture=True)
+    commit = run(
+        ["git", "commit-tree", tree, "-p", parent_pr, "-p", parent_base,
+         "-m", "Merge base branch into PR and sync development-updates.md"],
+        capture=True,
+    )
+    run(["git", "push", "prhead", f"{commit}:{head_branch}"])
     print(f"PR #{pr_number}: synced and pushed to {head_repo}:{head_branch}.")
     return 0
 

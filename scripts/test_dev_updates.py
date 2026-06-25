@@ -70,4 +70,20 @@ theirs = base
 m, c = merge(base, ours, theirs)
 check("prose edit kept", "Intro line edited." in m and not c)
 
+# rows always come out alphabetical regardless of input order
+unsorted = "| Name/GH | Week 0 |\n|---|---|\n| [Zed](u/z) | [U0](z) |\n| [Ann](u/a) | [U0](a) |\n"
+out = du.do_format(unsorted)
+check("format sorts rows alphabetically", out.index("[Ann]") < out.index("[Zed]"))
+
+# convergence: PR (old order + new row) and main (different order + another row)
+# merge to the SAME ordering so a later git merge is clean
+base = "| Name/GH | Week 1 |\n|---|---|\n| [Bob](u/b) |  |\n"
+main = "| Name/GH | Week 1 |\n|---|---|\n| [Bob](u/b) | [U1](b) |\n| [Cara](u/c) |  |\n"
+pr   = "| Name/GH | Week 1 |\n|---|---|\n| [Bob](u/b) |  |\n| [Abe](u/a) | [U1](a) |\n"
+m1, _ = merge(base, pr, main)
+m2, _ = merge(base, main, pr)
+check("merge order is symmetric/deterministic", m1 == m2)
+check("merged rows alphabetical", m1.index("[Abe]") < m1.index("[Bob]") < m1.index("[Cara]"))
+check("merge keeps both new contributions", "[U1](a)" in m1 and "[U1](b)" in m1)
+
 print("\nALL TESTS PASSED")
