@@ -72,7 +72,7 @@ The actual project development is the main part of the program. Post your regula
 | Name/GH                                              | Week 3                                           | Week 4 | Week 5 | Project Proposal |
 | ---------------------------------------------------- | ------------------------------------------------ | ------ | ------ | ---------------- |
 | [Aarish](https://github.com/aarishnaiyer)            |                                                  |        |        |                  |
-| [Abhivansh](https://github.com/akronim26)            |                                                  |        |        |                  |
+| [Abhivansh](https://github.com/akronim26)            | [Update 3](https://hackmd.io/@astaxxoo/HJAX2VtQfg) |        |        |                  |
 | [Aiden](https://github.com/sgtSong)            |                                                  |        |        |                  |
 | [Arsh](https://github.com/ArshLabs)                  | [Update 3](https://hackmd.io/@arshlabs/HklneUmO7zx)             |        |        |                  |
 | [Astrion](https://github.com/astrion-coder)          |                                                  |        |        |                  |
