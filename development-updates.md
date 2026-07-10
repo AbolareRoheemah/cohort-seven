@@ -60,7 +60,7 @@ Phase one is the very beginning of the cohort. The first few weeks are dedicated
 | [Zidan](https://github.com/mzf11125)                 | [Update 0](https://hackmd.io/@MpYoLwpETrKvUBs2PpmPxA/BJC-dHOZze)                                    | [Update 1](https://hackmd.io/@MpYoLwpETrKvUBs2PpmPxA/ByWhfCLfMg)                                      | [Update 2](https://hackmd.io/@MpYoLwpETrKvUBs2PpmPxA/Skfp9Wqmzg)   |
 
 ## Phase 2: Deep dive
-
+z
 With the gained insight into the protocol, the following weeks serve as a deep dive into a chosen topic. Read about [proposed projects](/projects/project-ideas.md) and choose one to dive into. By the first month, you should finish the initial research about a specific problem and propose a project, including a roadmap. Get some ideas from the [project proposal template](projects/project-template.md).
 
 | Name/GH                                              | Week 3                                                           | Week 4 | Week 5 | Project Proposal |
@@ -74,7 +74,7 @@ With the gained insight into the protocol, the following weeks serve as a deep d
 | [Bankat](https://github.com/mananuf/)                |                                                                  |        |        |                  |
 | [Blessing](https://github.com/dicethedev/)           |                                                                  |        |        |                  |
 | [Charles](https://github.com/creese)                 |                                                                  |        |        |                  |
-| [Conall](https://github.com/XRS-001/)                |                                                                  |        |        |                  |
+| [Conall](https://github.com/XRS-001)                 |                                                                  |[Update 4](https://docs.fileverse.io/d/02001110002a#k=igG0pvX8y_LUvXXaKpu0gBrHgMIzcv-VCmRXEsOF_MU) | | |
 | [Cristian](https://github.com/conache/)              | [Update 3](https://hackmd.io/@conache/BkU585LXMe)                |        |        |                  |
 | [Daniel](https://github.com/perfogic)                | [Update 3](https://hackmd.io/@perfogic/rkJxeWdXMe)               |        |        |                  |
 | [Hans](https://github.com/vuonghuuhung)              | [Update 3](https://hackmd.io/@hansvuong/r1xrMLc_mMl)             |        |        |                  |
